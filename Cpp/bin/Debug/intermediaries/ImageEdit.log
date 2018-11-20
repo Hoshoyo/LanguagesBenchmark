@@ -1,0 +1,18 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(372,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(373,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  main.cpp
+c:\dev\imageedit\imageedit\include\memory_arena.h(59): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+c:\dev\imageedit\imageedit\main.cpp(281): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\dev\imageedit\imageedit\main.cpp(518): warning C4244: 'argument': conversion from 'r64' to 'r32', possible loss of data
+c:\dev\imageedit\imageedit\main.cpp(534): warning C4244: 'argument': conversion from 's32' to 'r32', possible loss of data
+c:\dev\imageedit\imageedit\main.cpp(556): warning C4244: 'initializing': conversion from 'WPARAM' to 'int', possible loss of data
+c:\dev\imageedit\imageedit\main.cpp(557): warning C4244: 'initializing': conversion from 'LPARAM' to 'int', possible loss of data
+c:\dev\imageedit\imageedit\main.cpp(596): warning C4244: 'argument': conversion from 'r64' to 'r32', possible loss of data
+c:\dev\imageedit\imageedit\main.cpp(604): warning C4244: 'initializing': conversion from 'WPARAM' to 'int', possible loss of data
+c:\dev\imageedit\imageedit\main.cpp(615): warning C4244: 'initializing': conversion from 'WPARAM' to 'int', possible loss of data
+c:\dev\imageedit\imageedit\main.cpp(457): warning C4474: 'fprintf' : too many arguments passed for format string
+  c:\dev\imageedit\imageedit\main.cpp(457): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+c:\dev\imageedit\imageedit\main.cpp(487): warning C4474: 'fprintf' : too many arguments passed for format string
+  c:\dev\imageedit\imageedit\main.cpp(487): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+  ImageEdit.vcxproj -> C:\dev\ImageEdit\ImageEdit\bin\Debug\ImageEdit.exe
+  ImageEdit.vcxproj -> bin\Debug\ImageEdit.pdb (Partial PDB)

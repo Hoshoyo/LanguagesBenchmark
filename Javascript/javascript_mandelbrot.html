@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<img id="blankimg" style="display:none;" width="800" height="800" src="blank800x800.png">
+
+<canvas id="myCanvas" width="800" height="800">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<script>
+function add_complex(z_re, z_im, v_re, v_im) {
+	var res_re = 0;
+	var res_im = 0;
+	res_re = z_re + v_re;
+	res_im = z_im + v_im;
+	return [res_re, res_im];
+}
+
+function mult_complex(z_re, z_im, v_re, v_im) {
+	var res_re = 0;
+	var res_im = 0;
+	res_re = z_re * v_re - z_im * v_im;
+	res_im = z_re * v_im + z_im * v_re;
+	return [res_re, res_im];
+}
+
+window.onload = function() {
+	var startTime, endTime;
+
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    var img = document.getElementById("blankimg");
+
+    ctx.drawImage(img, 0, 0);
+    
+    var imgdata = ctx.getImageData(0, 0, img.width, img.height);
+    var data = imgdata.data;
+	
+	var scale = 2.0;
+	var xoff = 0.0;
+	var yoff = 0.0;
+	var its = 256;
+	
+	var width = img.width;
+	var height = img.height;
+		
+	var start = new Date().getTime();//start();
+	for(var y = 0; y < height; y++) {
+		for(var x = 0; x < width; x++) {
+			var index = (y * width * 4) + x * 4;
+			
+			var half_scale = scale / 2.0;
+
+			var index = (y * width * 4) + x * 4;
+			var x_coord = (x / width)  * scale - half_scale;
+			var y_coord = (y / height) * scale - half_scale;
+			
+			x_coord += xoff;
+			y_coord += yoff;
+			
+			var r = 0;
+			var g = 0;
+			var b = 0;
+			
+			var z_re = 0;
+			var z_im = 0;
+			
+			var coord_re = x_coord;
+			var coord_im = y_coord;
+			
+			for(var i = 0; i < its; i++){
+				var z_res = mult_complex(z_re, z_im, z_re, z_im);
+				z_res = add_complex(z_res[0], z_res[1], coord_re, coord_im);
+				z_re = z_res[0];
+				z_im = z_res[1];
+				var v = z_res[0] * z_res[0] + z_res[1] * z_res[1];
+				if(Math.sqrt(v) > 2.0) {
+					r = i;
+					g = i;
+					b = i;
+					break;
+				}
+			}
+
+			data[index+0] = r;
+			data[index+1] = g;
+			data[index+2] = b;
+		}
+    }
+	var elapsed = new Date().getTime() - start;
+	console.log(elapsed);
+    
+    ctx.putImageData(imgdata, 0, 0);
+}
+</script>
+
+</body>
+</html>
