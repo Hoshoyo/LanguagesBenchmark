@@ -596,7 +596,7 @@ int WINAPI WinMain(HINSTANCE instance, HINSTANCE prev_instance, LPSTR cmd_line, 
 					//modify_image(image, width, height, scale, xoff, yoff);
 					//double end = timer.get_time();
 					//printf("elapsed: %f ms.\n", end - start);
-					//modify_image(image, width, height, scale, xoff, yoff);
+					modify_image(image, width, height, scale, xoff, yoff);
 					glTextureSubImage2D(image_id, 0, 0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, image);
 				}
 			} break;
