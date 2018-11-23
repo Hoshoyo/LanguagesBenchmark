@@ -30,7 +30,7 @@ struct Timer
 		clockid_t clockid;
 		struct timespec t_spec;
 		int start = clock_gettime(CLOCK_MONOTONIC_RAW, &t_spec);
-		u64 res = t_spec.tv_nsec + 1000000000 * t_spec.tv_sec;
+		unsigned long long res = t_spec.tv_nsec + 1000000000 * t_spec.tv_sec;
 		return (double)res / 1000000.0;
 	}
 };
